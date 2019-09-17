@@ -1,3 +1,46 @@
+html {
+    font-family: "Roboto", sans-serif;
+}
+
 article {
-    background:  #0000;;
+    background:  #0000;
+    display: grid;
+}
+
+header {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 130px;
+    background-color: #dfebfb;
+  }
+
+  section.main
+  {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  section.sources
+  {
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 120px;
+  }
+img {
+  float: left;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 0px;
+}
+
+p
+{
+text-indent: 50px;
+padding-top: 20px;
+padding-left: 470px;
+}
+
+ul{
+  list-style-type: none;
 }
