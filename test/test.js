@@ -49,7 +49,7 @@ gitConfig(function (err, config) {
   if (err) return done(err);
   if (config.user.name) {name = config.user.name;}
   if (config.user.email) {email = config.user.email;}
-  if (config.user.github) {githubid = config.user.gtihub;}
+  if (config.user.github) {githubid = config.user.github;}
 
 });
 
@@ -249,7 +249,7 @@ describe('Problem 3: Basic CSS', function() {
 
 
 describe('Problem 4: Layout and Media Queries', function() {
-
+console.log("aosdkasdokasosadksao")
     before(async function() {
     let jsdom = await JSDOM.fromFile("04/index.html", {
       resources: "usable",
