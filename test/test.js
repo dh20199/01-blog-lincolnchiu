@@ -49,7 +49,7 @@ gitConfig(function (err, config) {
   if (err) return done(err);
   if (config.user.name) {name = config.user.name;}
   if (config.user.email) {email = config.user.email;}
-  if (config.github.user) {githubid = config.github.user;}
+  if (config.user.github) {githubid = config.user.github;}
 
 });
 
