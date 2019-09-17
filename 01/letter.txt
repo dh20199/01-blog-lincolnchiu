@@ -1,3 +1,10 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+
 Your Name
 Email: your.email@utoronto.ca
 
@@ -11,7 +18,7 @@ Re: enrollment in HIS393
 
 Dear Prof. Price,
 
-I was told to enrol in this class by someone, I don't know who. It seems like kind of a bad idea but I'm going to do it anyway because I don't have any ideas of my own and anyway I always do what I'm told. I have a couple of questions though, can you please answer them? 
+I was told to enrol in this class by someone, I don't know who. It seems like kind of a bad idea but I'm going to do it anyway because I don't have any ideas of my own and anyway I always do what I'm told. I have a couple of questions though, can you please answer them?
 
 Assignments
 
@@ -23,13 +30,13 @@ Are the assignments actually required, or can I just say I did them?  In particu
 
 Lectures
 
-Is there any point in coming to class? I looked you up on Rate My Little Pony (https://www.pinterest.ca/pin/840273242953005718/), and your ratings are pretty terrible.
+Is there any point in coming to class? I looked you up on Rate My Little Pony, and your ratings are pretty terrible.
 
 Course Website
 
 I have taken a look at the course website. It sure seems pretty weird.  Do you mind if I just ignore this part?
 
-I look forward to a fruitful semester. 
+I look forward to a fruitful semester.
 
 Yours sincerely,
 Your Name

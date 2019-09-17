@@ -10,7 +10,7 @@ const path = require('path'),  // find paths
       gitState = require('git-state'),
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
       hwc = require('html-word-count'); // important!
-      
+
 const chai=require('chai'), // testing stuff
       expect=chai.expect, // stupidly using both assert and expect
       assert=chai.assert;
@@ -28,7 +28,7 @@ var ignoreCommitEmails = 'matt.price@utoronto.ca'; // ignore my own commits
 /**
  * check whether a given email matches any of the forbidden emails
  * @param {} git
- * @returns {} 
+ * @returns {}
  */
 const matchesProfEmail = function (email, profEmails) {
   return (profEmails.indexOf(email) > -1);
@@ -49,8 +49,8 @@ gitConfig(function (err, config) {
   if (err) return done(err);
   if (config.user.name) {name = config.user.name;}
   if (config.user.email) {email = config.user.email;}
-  if (config.github.user) {githubid = config.github.user;}
-  
+  if (config.user.github) {githubid = config.user.gtihub;}
+
 });
 
 
@@ -117,7 +117,7 @@ describe('Git Checks', function() {
 // TODO: convert from cheerio to jsdom/jquery
 describe('Problem 1: Structure a Letter: ', function() {
   let $ = cheerio.load(problem1);
- 
+
   describe('Header Tests', function() {
     it('Sender div contains the right info', function() {
       //console.log($('header div.senderinfo p a')[0].attribs.href);
@@ -143,7 +143,7 @@ describe('Problem 1: Structure a Letter: ', function() {
     });
   });
 
-  
+
   describe('Letter Body Tests', function() {
     it('Greeting', function() {
       expect($('article div.greeting').html(), 'Add in the `Dear Prof` greeting').to.include('Dear Prof');
@@ -167,7 +167,7 @@ describe('Problem 2: Tables', function() {
   before(function() {
     // load index and set up tests
   });
-  
+
   it('Table isn´t empty', function() {
     expect ($('article > table').children().length, 'Do you have a table, and does it have any content?').to.be.at.least(1);
   });
@@ -200,9 +200,9 @@ describe('Problem 3: Basic CSS', function() {
       resources: "usable",
       runScripts: "dangerously"
     });
-    
+
     await new Promise(resolve =>
-      jsdom.window.addEventListener("load", resolve)      
+      jsdom.window.addEventListener("load", resolve)
     );
     let window  = jsdom.window;
     let {document } = global.document = window;
@@ -214,7 +214,7 @@ describe('Problem 3: Basic CSS', function() {
     let h = $('html');
     expect (h.css('font-family'), 'font-family should be set to "Roboto", sans-serif')
       .to.equal('"Roboto", sans-serif');
-});  
+});
   it('<main>', function() {
     let m = $('main');
     expect(m.css('max-width'), 'max-width property should be set to 50 rem').to.equal('50rem') &&
@@ -227,7 +227,7 @@ describe('Problem 3: Basic CSS', function() {
     expect (h.css('background-color'), 'background-color property should be non-null').to.be.ok &&
       expect(h.css('background-color'), 'background-color of header and footer should be the same').to.equal(f.css('background-color')) &&
       expect(h.css('padding-top'), 'padding-top should be set to 5px').to.equal('5px') &&
-      expect(f.css('min-height'), 'min-height of footer should be 5rem').to.equal('5rem'); 
+      expect(f.css('min-height'), 'min-height of footer should be 5rem').to.equal('5rem');
   });
 
   it('<article>', function() {
@@ -243,21 +243,21 @@ describe('Problem 3: Basic CSS', function() {
       expect(i.css('border-radius'), 'border-radius property should be set')
       .to.not.be.undefined  &&
       expect (i.css('margin-right'), 'margin-right should be set to 5px').to.equal('5px') ;
- 
+
   });
 });
 
 
 describe('Problem 4: Layout and Media Queries', function() {
-  
+
     before(async function() {
     let jsdom = await JSDOM.fromFile("04/index.html", {
       resources: "usable",
       runScripts: "dangerously"
     });
-    
+
     await new Promise(resolve =>
-      jsdom.window.addEventListener("load", resolve)      
+      jsdom.window.addEventListener("load", resolve)
     );
     let window  = jsdom.window;
     let {document } = global.document = window;
@@ -281,7 +281,7 @@ describe('Problem 4: Layout and Media Queries', function() {
     let s = $('section.sidebar');
     expect (s.css('grid-area'), 'grid-area should be set to the obvious choice form main\'s template areas').to.equal('side') &&
       expect (s.css('flex-direction'), 'flex-direction should be set a value that enforces vertical flow (not horizontal)').to.equal('column') ;
-      
+
   });
 
   it('<article>', function() {
@@ -297,7 +297,7 @@ describe('Problem 4: Layout and Media Queries', function() {
       .to.equal('1/3') &&
       expect (b.css('grid-column'),
               'grid-column should be so that the box spans two columns ,staring at the left')
-      .to.equal('1/3'); 
+      .to.equal('1/3');
   });
 
   it('#box2', function() {
@@ -321,9 +321,9 @@ describe('Problem 4: Layout and Media Queries', function() {
   it('#box5', function() {
     let b = $('#box5');
     expect (b.css('grid-row'), 'grid-row should be so that the box sits at the top in a single grid cell' ).to.be.oneOf([1,'1/2']) &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box sits at the right in a single grid box').to.be.oneOf(['5','5/6']); 
+      expect (b.css('grid-column'), 'grid-column should be so that the box sits at the right in a single grid box').to.be.oneOf(['5','5/6']);
   });
-  
+
 });
 
 
@@ -334,9 +334,9 @@ describe('Problem 5: Blog Post', function() {
       resources: "usable",
       runScripts: "dangerously"
     });
-    
+
     await new Promise(resolve =>
-      jsdom.window.addEventListener("load", resolve)      
+      jsdom.window.addEventListener("load", resolve)
     );
     let window  = jsdom.window;
     let {document } = global.document = window;
@@ -355,25 +355,25 @@ describe('Problem 5: Blog Post', function() {
       let element = $('header');
       expect (element[0].parentNode.tagName.toLowerCase(), 'the parent of header is not article, is it in the right place?').to.equal('article') ;
     });
-  
+
     it('Header should contain an <h1> element', function() {
       assert.isAtLeast($('header h1').length,1,'No <h1> inside of <header>');
-           
+
     });
 
     it('Header should contain an <h2> element', function() {
       assert.isAtLeast($('header h2').length,1,'No <h2> inside of <header>');
-           
+
     });
 
     it('h2 should contain a <span> with class "author"', function() {
       assert.isAtLeast($('header h2 span.author').length,1,'No span.author inside of <h2>');
-           
+
     });
 
     it('Post should contain a section.main element', function() {
       assert.isAtLeast($('section.main').length,1,'No header elements found');
-           
+
     });
 
 
@@ -384,7 +384,7 @@ describe('Problem 5: Blog Post', function() {
       // console.log(image.attribs.src);
         expect($(this).attr('src'), 'image tag without src attribute for image number ' + i)
           .to.be.a('string').that.is.not.empty;
-      }); 
+      });
     });'';
 
     it('Main section of the blog post should contain at least 175 words ', function() {
@@ -394,12 +394,12 @@ describe('Problem 5: Blog Post', function() {
 
 
     it('Post should contain a section.sources element', function() {
-      assert.isAtLeast($('section.sources').length,1, 'No <section> element found with class "sources"');    
+      assert.isAtLeast($('section.sources').length,1, 'No <section> element found with class "sources"');
     });
 
     it('section.sources should contain a ul element with minimum two li elements', function(done) {
-      assert.isAtLeast($('section.sources ul').length,1,'No <ul> element inside section.sources');    
-      assert.isAtLeast($('section.sources ul li').length,2,'Did not find 2 <li> elements within <ul> inside section.sources');    
+      assert.isAtLeast($('section.sources ul').length,1,'No <ul> element inside section.sources');
+      assert.isAtLeast($('section.sources ul li').length,2,'Did not find 2 <li> elements within <ul> inside section.sources');
 
       done();
     });
@@ -421,7 +421,7 @@ describe('Problem 5: Blog Post', function() {
       assert.isAtLeast($('link').length,1,'did not find any link elements');
       $('link').each(function(i) {
         if ($(this).attr('href') == 'style.css' || $(this).attr('href') == './style.css') {
-          pointstostyle = true ; 
+          pointstostyle = true ;
         }
       });
       assert.isTrue(pointstostyle, 'none of the link elements point to style.css');
@@ -436,25 +436,25 @@ describe('Problem 5: Blog Post', function() {
       expect(element.css('display')==='grid' || element.css('display') === 'flex' ,
         'CSS property "display" should be set to "grid" or "flex"').to.be.true;
     });
-    
+
     // it('<header> element should have width of 100%', function (done) {
     //   // console.log($('header').css('width'));
-    //   assert.equal($('header').css('width'),'100%', 
+    //   assert.equal($('header').css('width'),'100%',
     //     'header width should be set to 100%');
     //   done();
     // });
-    
+
     it('<header> element background should be different from background of <article> element and <section> elements', function(done) {
       let hb = $('header').css('background'),
           ab = $('article').css('background');
       console.log('ARTICLE: ' + $('article').css('background'));
       console.log('HEADER: ' + $('header').css('background'));
       expect(hb).to.not.equal(ab);
-      // assert.notEqual($('header').css('background') + 'hello', $('article').css('background'), 
+      // assert.notEqual($('header').css('background') + 'hello', $('article').css('background'),
       //   'header background should not be the same as article background ');
       done();
     });
-    
+
     it('section.main and section.sources should have right and left margins', function() {
     // console.log($('section.main').css('margin-left'));
       assert.exists($('section.main').css('margin-left'), 'margin-left property is not defined');
@@ -464,8 +464,8 @@ describe('Problem 5: Blog Post', function() {
 
     });
     it('section.sources should have a border', function() {
-      assert.exists($('section.sources').css('border'), 'border property is not set');    
-    
+      assert.exists($('section.sources').css('border'), 'border property is not set');
+
     });
     it('images should float and text should wrap around them', function() {
       assert.exists($('img').css('float'), 'float property not set on images');
